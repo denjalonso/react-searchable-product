@@ -4,7 +4,8 @@
   "description": "Searchable product from React docs - thinking in React",
   "main": "server.js",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server -d"
+    "start": "./node_modules/.bin/webpack-dev-server -d",
+    "demo:build": "rm -rf demo && webpack && cp index.html demo"
   },
   "repository": {
     "type": "git",
