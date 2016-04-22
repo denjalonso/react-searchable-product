@@ -2,20 +2,22 @@ import React from "react";
 import SearchBar from "../components/SearchBar";
 import ProductTable from "../components/ProductTable";
 
-export default React.createClass({
-    getInitialState: function () {
-        return {
+export default class FilterableProductTable extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             filterText: '',
             inStockOnly: false
         };
-    },
-    handleUserInput: function (filterText, inStockOnly) {
+        this.handleUserInput = this.handleUserInput.bind(this);
+    }
+    handleUserInput(filterText, inStockOnly) {
         this.setState({
             filterText: filterText,
             inStockOnly: inStockOnly
         });
-    },
-    render: function() {
+    }
+    render() {
         return (
             <div>
                 <SearchBar
@@ -31,4 +33,4 @@ export default React.createClass({
             </div>
         );
     }
-});
+};

@@ -1,20 +1,26 @@
 import React from "react";
 
-export default React.createClass({
-    handleChange: function () {
+export default class SearchBar extends React.Component {
+    constructor() {
+        super();
+        // https://facebook.github.io/react/docs/reusable-components.html#no-autobinding
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange() {
         this.props.onUserInput(
             this.refs.filterTextInput.value,
             this.refs.inStockOnlyInput.checked
         );
-    },
-    render: function () {
+    }
+    render() {
         return (
             <form>
                 <input type="text"
                        placeholder="Search..."
                        value={this.props.filterText}
                        ref="filterTextInput"
-                       onChange={this.handleChange}
+                       // https://facebook.github.io/react/docs/reusable-components.html#no-autobinding
+                       onChange={() => this.handleChange()}
                 />
                 <p>
                     <input type="checkbox"
@@ -28,4 +34,4 @@ export default React.createClass({
             </form>
         );
     }
-});
+};

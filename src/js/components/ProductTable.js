@@ -2,8 +2,8 @@ import React from "react";
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-export default React.createClass({
-    render: function () {
+export default class ProductTable extends React.Component {
+    render() {
         let rows = [];
         let lastCategory = null;
         this.props.products.forEach(product => {
@@ -30,4 +30,4 @@ export default React.createClass({
             </table>
         );
     }
-});
+};

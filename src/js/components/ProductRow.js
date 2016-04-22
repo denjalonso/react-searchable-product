@@ -1,7 +1,7 @@
 import React from "react";
 
-export default React.createClass({
-    render: function () {
+export default class ProductRow extends React.Component {
+    render() {
         let name = this.props.product.stocked ?
             this.props.product.name :
             <span style={{color: 'red'}}>
@@ -16,4 +16,4 @@ export default React.createClass({
             </tr>
         );
     }
-});
+};
